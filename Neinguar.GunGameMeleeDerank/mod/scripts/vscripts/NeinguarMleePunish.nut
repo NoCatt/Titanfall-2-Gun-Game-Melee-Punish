@@ -1,11 +1,16 @@
 global function Neinguar_Melee_gg_init
+string modeTemp = GetConVarString("ModeList")
+array < string > Modes
 
 void function Neinguar_Melee_gg_init() {
     AddCallback_OnPlayerKilled( OnPlayerKilled )
+    foreach (string mode in split(ModeTemp, ",")) {
+        Modes.append(strip(mode))
+    }
 }
 
 void function OnPlayerKilled (entity victim, entity attacker, var damageInfo) {
-    if (mode != "gg")
+    if (Modes.find("gg")==-1 )
         return
     if ( DamageInfo_GetDamageSourceIdentifier( damageInfo ) == eDamageSourceId.melee_pilot_emptyhanded )
     {

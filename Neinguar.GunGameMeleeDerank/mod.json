@@ -4,7 +4,12 @@
 "LoadPriority": 0,
 "RequiredOnClient": false,
 "Version": "1.0.0",
-
+    "ConVars":[
+        {
+            "Name": "ModeList",
+            "DeafaultValue": "gg"
+        }
+    ],
     "Scripts":[
         {
         "Path": "NeinguarMleePunish.nut",
